@@ -1,0 +1,4 @@
+**先启动后端再启动前端
+
+1、命令行切换到该路径安装项目的依赖命令  npm install   推荐用cnpm install
+2、npm run serve启动项目
