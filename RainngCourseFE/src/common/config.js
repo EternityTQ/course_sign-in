@@ -1,5 +1,5 @@
 let Config = {};
 
-Config.backEndUrl = "http://localhost:8085";
+Config.backEndUrl = "http://124.221.54.208:8085";
 
 export default Config;

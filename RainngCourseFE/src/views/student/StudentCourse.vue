@@ -18,16 +18,7 @@
           <el-table-column label="日常成绩" prop="dailyScore" />
           <el-table-column label="考试成绩" prop="examScore" />
           <el-table-column label="总成绩" prop="score" />
-          <el-table-column align="center" label="操作" width="200px">
-            <template slot-scope="scope">
-              <el-button
-                @click="deleteItem(scope.row.studentCourseId)"
-                size="mini"
-                type="danger"
-                >退选
-              </el-button>
-            </template>
-          </el-table-column>
+          
         </el-table>
       </div>
     </div>

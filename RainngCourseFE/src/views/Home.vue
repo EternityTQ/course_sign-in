@@ -1,7 +1,7 @@
 <template>
   <div>
     <h2>欢迎使用课程管理系统</h2>
-    主页可自行改改，懒得弄加个图片就行
+    <img src="/9.png" alt="khn daisuki" height="20%" class="pic_responsive"/>
 
 
   </div>
@@ -64,6 +64,11 @@ export default {
   margin-right: auto;
   height: 200px;
   margin-top: 20px;
+}
+
+.pic_responsive {
+  max-width: 100%;
+  height: auto;
 }
 
 .aside-img {

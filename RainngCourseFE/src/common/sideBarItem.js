@@ -11,13 +11,13 @@ SideBarItem.items = [
     userType: UserType.student,
     permission: Permission.no
   },
-  {
-    icon: "el-icon-fa fa-book",
-    index: "/student/course/select",
-    title: "选修课程",
-    userType: UserType.student,
-    permission: Permission.no
-  },
+//  {
+//    icon: "el-icon-fa fa-book",
+//    index: "/student/course/select",
+//    title: "选修课程",
+//    userType: UserType.student,
+//    permission: Permission.no
+//  },
   {
     icon: "el-icon-fa fa-edit",
     index: "/student/course",
@@ -39,13 +39,13 @@ SideBarItem.items = [
   //   userType: UserType.student,
   //   permission: Permission.no
   // },
-  {
-    icon: "el-icon-fa fa-newspaper-o",
-    index: "/student/score",
-    title: "成绩查询",
-    userType: UserType.student,
-    permission: Permission.no
-  },
+//  {
+//    icon: "el-icon-fa fa-newspaper-o",
+//    index: "/student/score",
+//    title: "成绩查询",
+//    userType: UserType.student,
+//    permission: Permission.no
+//  },
   {
     icon: "el-icon-fa fa-id-badge",
     index: "/student/info",
@@ -77,7 +77,7 @@ SideBarItem.items = [
   {
     icon: "el-icon-fa fa-edit",
     index: "/teacher/grade",
-    title: "成绩录入",
+    title: "签到管理",
     userType: UserType.teacher,
     permission: Permission.no
   },
@@ -88,13 +88,13 @@ SideBarItem.items = [
     userType: UserType.admin,
     permission: Permission.no
   },
-  {
-    icon: "el-icon-fa fa-fort-awesome",
-    index: "/admin/department",
-    title: "系管理",
-    userType: UserType.admin,
-    permission: Permission.department
-  },
+// {
+//    icon: "el-icon-fa fa-fort-awesome",
+//    index: "/admin/department",
+//    title: "系管理",
+//    userType: UserType.admin,
+//    permission: Permission.department
+//  },
   {
     icon: "el-icon-fa fa-graduation-cap",
     index: "/admin/major",

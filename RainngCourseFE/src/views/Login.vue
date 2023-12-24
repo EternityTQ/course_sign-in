@@ -1,7 +1,7 @@
 <template>
   <div class="login-wrap">
     <div class="login-form">
-      <div class="form-title">课程管理系统</div>
+      <div class="form-title">课程签到管理系统</div>
       <el-form :model="formData" :rules="rules" class="form-content" label-width="0px" ref="form">
         <el-form-item prop="username">
           <el-input placeholder="学号/工号/用户名" v-model="formData.username">
@@ -28,10 +28,9 @@
         </div>
       </el-form>
       <div style="text-align: center;padding-bottom: 10px">
-        <a href="http://blog.c1n.cn/" target="_blank">blog.c1n.cn</a>
+        <a href="stu.sztu.edu.cn\" target="_blank">stu.sztu.edu.cn</a>
       </div>
     </div>
-
   </div>
 </template>
 
