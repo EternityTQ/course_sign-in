@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.NonNull;
 import org.springframework.data.annotation.Id;
@@ -33,6 +34,7 @@ public class SigninEntity {
 
     @NotNull(message = "必须选择签到时间")
     @TableField(TIMESTAMP)
+    @JsonFormat(pattern = "yyyy/MM/dd HH:mm")
     private Data timeStamp;
 
     @NotNull(message = "必须选择地点")
