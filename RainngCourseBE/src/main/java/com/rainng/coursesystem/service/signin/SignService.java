@@ -13,8 +13,8 @@ public class SignService extends BaseService {
         this.manager = manager;
     }
     public ResultVO list(){
-        Integer id = getUserId();
-        return result(manager.listSignInRecordByStuId(id));
+//        Integer id = getUserId();
+        return result(manager.listSignInRecordByStuId());
     }
 
 }

@@ -20,9 +20,9 @@ public class SignController {
     public ResultVO list(){
         return service.list();
     }
-//    // 返回签到结果
-////    @PostMapping("/sign")
-////    public Integer sign(@RequestBody SignRequestVO value){
-////        return service.sign(value.getId(),value.getLocation(),value.getTimeStamp());
-////    }
+    // 返回签到结果
+//    @PostMapping("/sign")
+//    public Integer sign(@RequestBody SignRequestVO value){
+//        return service.sign(value.getId(),value.getLocation(),value.getTimeStamp());
+//    }
 }

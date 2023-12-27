@@ -10,8 +10,9 @@ import lombok.NonNull;
 import org.springframework.data.annotation.Id;
 
 import javax.validation.constraints.NotNull;
+import java.util.Date;
 
-@TableName("signin_record")
+@TableName("rc_signin_record")
 @Data
 public class SigninEntity {
     private static final String ID = "signin_id";
@@ -23,19 +24,31 @@ public class SigninEntity {
     /**
      * 签到状态
      */
-    public enum SigninStatus {
-        SUCCESS,     // 签到成功
-        FAILED, // 未签到
-        ERROR        // 错误
+    public enum  SigninStatus {
+        SUCCESS,         // 签到成功
+        FAILED,         // 未签到
+        ERROR ,       // 错误
+    }
+    public static SigninStatus fromString(String status) {
+        switch (status) {
+            case "SUCCESS":
+                return SigninStatus.SUCCESS;
+            case "FAILED":
+                return SigninStatus.FAILED;
+            case "ERROR":
+                return SigninStatus.FAILED;
+            default:
+                throw new IllegalArgumentException("Invalid value for SigninStatus: " + status);
+        }
     }
     @NonNull
     @TableId(value = ID, type = IdType.AUTO)
-    private Long id;
+    private int id;
 
     @NotNull(message = "必须选择签到时间")
     @TableField(TIMESTAMP)
     @JsonFormat(pattern = "yyyy/MM/dd HH:mm")
-    private Data timeStamp;
+    private Date timeStamp;
 
     @NotNull(message = "必须选择地点")
     @TableField(LOCATION)
@@ -47,10 +60,10 @@ public class SigninEntity {
 
     @NotNull
     @TableField(STUDENT)
-    private String student_id;
+    private int student_id;
 
     @NotNull
     @TableField(COURSE)
-    private String course_id;
+    private int course_id;
 
 }

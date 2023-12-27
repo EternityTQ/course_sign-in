@@ -15,8 +15,8 @@ public class SignInManager {
         this.signinDAO = signinDAO;
     }
 
-    public List<SigninItemVO> listSignInRecordByStuId(Integer id){
-        return signinDAO.listSignInRecordByStuId(id);
+    public List<SigninItemVO> listSignInRecordByStuId(){
+        return signinDAO.listSignInRecordByStuId();
     }
 
 }
