@@ -16,9 +16,9 @@ public class SignController {
         this.service = signService;
     }
     // 查看签到记录
-    @GetMapping("/list")
-    public ResultVO list(){
-        return service.list();
+    @GetMapping("/list/{id}")
+    public ResultVO list(@PathVariable Integer id){
+        return service.list(id);
     }
     // 返回签到结果
 //    @PostMapping("/sign")

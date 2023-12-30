@@ -11,6 +11,6 @@ import java.util.List;
 public interface SignInMapper extends BaseMapper<SigninEntity> {
     // todo 补充
 
-    List<SigninItemVO> listSignInRecordByStuId();
+    List<SigninItemVO> listSignInRecordByStuId(Integer id);
 
  }

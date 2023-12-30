@@ -12,9 +12,12 @@ public class SignService extends BaseService {
     public SignService(SignInManager manager){
         this.manager = manager;
     }
-    public ResultVO list(){
-//        Integer id = getUserId();
-        return result(manager.listSignInRecordByStuId());
+    /*
+    通过学生id查看签到记录
+     */
+    public ResultVO list(Integer stu_id){
+//        Integer stu_id = getUserId();
+        return result(manager.listSignInRecordByStuId(stu_id));
     }
 
 }

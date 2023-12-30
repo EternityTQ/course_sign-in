@@ -10,9 +10,9 @@ import java.util.Date;
 
 @Data
 public class SigninItemVO {
-    private int id;
-    private int student_id;
-    private int course_id;
+    private Integer id;
+    private String course_name;
+    private String teacher_name;
     private String location;
     @JsonFormat(pattern = "yyyy/MM/dd HH:mm")
     private Date timeStamp;

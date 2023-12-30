@@ -22,8 +22,8 @@ public class SigninDAO {
 
     public int update(SigninEntity entity){return mapper.updateById(entity);};
 
-    public List<SigninItemVO> listSignInRecordByStuId(){
-        return mapper.listSignInRecordByStuId();
+    public List<SigninItemVO> listSignInRecordByStuId(Integer id){
+        return mapper.listSignInRecordByStuId(id);
     }
 
 
