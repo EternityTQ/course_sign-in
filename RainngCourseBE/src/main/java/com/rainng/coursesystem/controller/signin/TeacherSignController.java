@@ -23,6 +23,6 @@ public class TeacherSignController {
      */
     @GetMapping("/list/{id}")
     public ResultVO list(@PathVariable Integer id){
-        return service.listByStuId(id);
+        return service.listByTeacherId(id);
     }
 }

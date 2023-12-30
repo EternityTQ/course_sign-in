@@ -1,8 +1,8 @@
 package com.rainng.coursesystem.manager.signin;
 
 import com.rainng.coursesystem.dao.SigninDAO;
-import com.rainng.coursesystem.dao.mapper.SignInMapper;
-import com.rainng.coursesystem.model.vo.response.table.SigninItemVO;
+import com.rainng.coursesystem.model.vo.response.table.StudentSigninItemVO;
+import com.rainng.coursesystem.model.vo.response.table.TeacherSigninItemVO;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -15,8 +15,11 @@ public class SignInManager {
         this.signinDAO = signinDAO;
     }
 
-    public List<SigninItemVO> listSignInRecordByStuId(Integer id){
+    public List<StudentSigninItemVO> listSignInRecordByStuId(Integer id){
         return signinDAO.listSignInRecordByStuId(id);
+    }
+    public List<TeacherSigninItemVO> listSignInRecordByTeacherId(Integer id){
+        return signinDAO.listSignInRecordByTeacherId(id);
     }
 
 }

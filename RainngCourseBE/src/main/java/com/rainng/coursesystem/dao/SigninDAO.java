@@ -2,7 +2,8 @@ package com.rainng.coursesystem.dao;
 
 import com.rainng.coursesystem.dao.mapper.SignInMapper;
 import com.rainng.coursesystem.model.entity.SigninEntity;
-import com.rainng.coursesystem.model.vo.response.table.SigninItemVO;
+import com.rainng.coursesystem.model.vo.response.table.StudentSigninItemVO;
+import com.rainng.coursesystem.model.vo.response.table.TeacherSigninItemVO;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -22,9 +23,9 @@ public class SigninDAO {
 
     public int update(SigninEntity entity){return mapper.updateById(entity);};
 
-    public List<SigninItemVO> listSignInRecordByStuId(Integer id){
+    public List<StudentSigninItemVO> listSignInRecordByStuId(Integer id){
         return mapper.listSignInRecordByStuId(id);
     }
-
+    public List<TeacherSigninItemVO> listSignInRecordByTeacherId(Integer id){return mapper.listSignInRecordByTeacherId(id);}
 
 }

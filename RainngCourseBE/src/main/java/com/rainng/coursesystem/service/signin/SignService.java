@@ -30,7 +30,7 @@ public class SignService extends BaseService {
      * @return
      */
     public ResultVO listByTeacherId(Integer id){
-        return failedResult("还没写完");
+        return result(manager.listSignInRecordByTeacherId(id));
     }
     /**
      * 学生签到请求
