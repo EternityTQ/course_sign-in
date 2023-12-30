@@ -9,7 +9,7 @@ import java.util.Date;
 @Data
 public class SignRequestVO {
     @NotNull(message = "签到id不能为0")
-    private Long id;
+    private Integer id;
 
     @JsonFormat(pattern = "yyyy/MM/dd HH:mm")
     @NotNull(message = "时间不能为0")

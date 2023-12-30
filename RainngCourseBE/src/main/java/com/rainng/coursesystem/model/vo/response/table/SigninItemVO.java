@@ -11,8 +11,8 @@ import java.util.Date;
 @Data
 public class SigninItemVO {
     private Integer id;
-    private String course_name;
-    private String teacher_name;
+    private String courseName;
+    private String teacherName;
     private String location;
     @JsonFormat(pattern = "yyyy/MM/dd HH:mm")
     private Date timeStamp;

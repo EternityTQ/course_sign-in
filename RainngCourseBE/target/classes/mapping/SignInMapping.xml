@@ -5,14 +5,14 @@
     <select id="listSignInRecordByStuId" resultType="SigninItemVO">
         SELECT
             signin_id AS 'id',
-            rc_course.course_name AS 'course_name',
-            rc_teacher.teacher_name AS 'teacher_name',
+            rc_course.course_name AS 'courseName',
+            rc_teacher.teacher_name AS 'teacherName',
             location AS 'location',
             timestamp AS 'timeStamp',
             status AS 'status'
         FROM rc_signin_record
-            LEFT JOIN rc_course  ON signin_course = course_id
-            LEFT JOIN rc_teacher  ON course_teacher_id = teacher_id
+            LEFT JOIN rc_course  ON signin_course = rc_course.course_id
+            LEFT JOIN rc_teacher  ON course_teacher_id = rc_teacher.teacher_id
         WHERE signin_student = #{id}
 
     </select>
