@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 import java.util.Date;
 
 @Data
-public class SignRequestVO {
+public class StudentSignRequestVO {
     @NotNull(message = "签到id不能为0")
     private Integer id;
 

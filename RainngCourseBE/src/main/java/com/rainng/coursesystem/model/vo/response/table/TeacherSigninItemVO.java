@@ -12,5 +12,8 @@ public class TeacherSigninItemVO {
     private String location;
     @JsonFormat(pattern = "yyyy/MM/dd HH:mm")
     private Date releaseTime;
+    @JsonFormat(pattern = "yyyy/MM/dd HH:mm")
+    private Date deadline;
+    private int code;
 
 }

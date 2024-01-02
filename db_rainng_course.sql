@@ -2,7 +2,8 @@
 SQLyog Ultimate v11.33 (64 bit)
 MySQL - 5.7.18-log : Database - db_rainng_course
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 

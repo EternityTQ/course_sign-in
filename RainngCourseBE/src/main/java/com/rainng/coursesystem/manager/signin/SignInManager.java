@@ -18,8 +18,8 @@ public class SignInManager {
     public List<StudentSigninItemVO> listSignInRecordByStuId(Integer id){
         return signinDAO.listSignInRecordByStuId(id);
     }
-    public List<TeacherSigninItemVO> listSignInRecordByTeacherId(Integer id){
-        return signinDAO.listSignInRecordByTeacherId(id);
+    public List<TeacherSigninItemVO> listSignInRecordByCourseId(Integer id){
+        return signinDAO.listSignInRecordByCourseId(id);
     }
 
 }

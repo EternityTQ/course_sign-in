@@ -1,6 +1,6 @@
 package com.rainng.coursesystem.controller.signin;
 
-import com.rainng.coursesystem.model.vo.request.SignRequestVO;
+import com.rainng.coursesystem.model.vo.request.StudentSignRequestVO;
 import com.rainng.coursesystem.model.vo.response.ResultVO;
 import com.rainng.coursesystem.service.signin.SignService;
 import org.springframework.web.bind.annotation.*;
@@ -30,7 +30,7 @@ public class StudentSignController {
      * @return
      */
     @PostMapping("/sign")
-    public ResultVO sign(@RequestBody SignRequestVO value){
-        return service.sign(value.getId(),value.getLocation(),value.getTimeStamp());
+    public ResultVO sign(@RequestBody StudentSignRequestVO value){
+        return service.signReqByStudent(value.getId(),value.getLocation(),value.getTimeStamp());
     }
 }
