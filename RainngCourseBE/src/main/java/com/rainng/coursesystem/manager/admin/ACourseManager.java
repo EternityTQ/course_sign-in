@@ -14,12 +14,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class CourseManager extends BaseManager {
+public class ACourseManager extends BaseManager {
     private final TeacherDAO teacherDAO;
     private final CourseDAO courseDAO;
     private final StudentCourseDAO studentCourseDAO;
 
-    public CourseManager(TeacherDAO teacherDAO, CourseDAO courseDAO, StudentCourseDAO studentCourseDAO) {
+    public ACourseManager(TeacherDAO teacherDAO, CourseDAO courseDAO, StudentCourseDAO studentCourseDAO) {
         this.teacherDAO = teacherDAO;
         this.courseDAO = courseDAO;
         this.studentCourseDAO = studentCourseDAO;

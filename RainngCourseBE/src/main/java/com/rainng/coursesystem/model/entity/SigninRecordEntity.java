@@ -24,7 +24,7 @@ public class SigninRecordEntity {
 
     @NonNull
     @TableId(value = ID, type = IdType.AUTO)
-    private int id;
+    private Integer id;
 
     @NotNull(message = "必须选择签到开始时间")
     @TableField(START)
@@ -36,19 +36,13 @@ public class SigninRecordEntity {
     @JsonFormat(pattern = "yyyy/MM/dd HH:mm")
     private Date end;
 
-    @NotNull(message = "经度不为空")
-    @TableField(LATITUDE)
-    private String Latitude;
-
-    @NotNull(message = "纬度不为空")
-    @TableField(LONGITUDE)
-    private String Longitude;
-
     @NotNull
     @TableField(CODE)
-    private int signin_id;
+    private int signin_code;
     @NotNull
     @TableField(COURSE)
     private int course_id;
+
+    public SigninRecordEntity() {}
 
 }

@@ -20,4 +20,7 @@ public interface TeacherMapper extends BaseMapper<TeacherEntity> {
     List<TimetableItemVO> listTeacherTimetable(Integer teacherId);
 
     List<TeacherCourseItemVO> listTeacherCourse(Integer teacherId);
+
+    TeacherItemVO selectByName(String name);
 }
+

@@ -1,6 +1,6 @@
 package com.rainng.coursesystem.service.admin;
 
-import com.rainng.coursesystem.manager.admin.CourseManager;
+import com.rainng.coursesystem.manager.admin.ACourseManager;
 import com.rainng.coursesystem.model.bo.CourseItemBO;
 import com.rainng.coursesystem.model.entity.CourseEntity;
 import com.rainng.coursesystem.model.vo.response.ResultVO;
@@ -15,10 +15,10 @@ import java.util.List;
 
 @Service
 public class CourseService extends BaseService {
-    private final CourseManager manager;
+    private final ACourseManager manager;
     private final LessonTimeConverter lessonTimeConverter;
 
-    public CourseService(CourseManager manager, LessonTimeConverter lessonTimeConverter) {
+    public CourseService(ACourseManager manager, LessonTimeConverter lessonTimeConverter) {
         this.manager = manager;
         this.lessonTimeConverter = lessonTimeConverter;
     }

@@ -1,27 +1,36 @@
 package com.rainng.coursesystem.service.signin;
 
-import com.rainng.coursesystem.manager.admin.TeacherManager;
+import com.rainng.coursesystem.manager.admin.ACourseManager;
+import com.rainng.coursesystem.manager.admin.ATeacherManager;
 import com.rainng.coursesystem.manager.signin.SignInManager;
-import com.rainng.coursesystem.manager.teacher.CourseManager;
+import com.rainng.coursesystem.manager.teacher.TCourseManager;
+import com.rainng.coursesystem.model.entity.SigninRecordEntity;
+import com.rainng.coursesystem.model.vo.request.TeacherSigninPostVO;
 import com.rainng.coursesystem.model.vo.response.ResultVO;
 import com.rainng.coursesystem.model.vo.response.table.TeacherCourseItemVO;
+import com.rainng.coursesystem.model.vo.response.table.TeacherItemVO;
 import com.rainng.coursesystem.service.BaseService;
+import com.rainng.coursesystem.util.GernerateSigninCode;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.Objects;
 
 @Service("sign_service")
 public class SignService extends BaseService {
     private final SignInManager signInManager;
-    private final CourseManager teacherManager;
-    private final TeacherManager manager;
+    private final TCourseManager tCourseManager;
+    private final ATeacherManager aTeacherManager;
+    private final ACourseManager aCourseManager;
     public SignService(SignInManager signInManager,
-                       TeacherManager manager,
-                       CourseManager teacherManager)
+                       ATeacherManager aTeacherManager,
+                       TCourseManager tCourseManager,
+                       ACourseManager aCourseManager)
     {
         this.signInManager = signInManager;
-        this.teacherManager = teacherManager;
-        this.manager = manager;
+        this.tCourseManager = tCourseManager;
+        this.aTeacherManager = aTeacherManager;
+        this.aCourseManager = aCourseManager;
     }
 
     /**
@@ -55,30 +64,41 @@ public class SignService extends BaseService {
 
     /**
      * 教师发布签到请求
-     * @param teacherName 教师名字
-     * @param courseName 课程名字
-     * @param start 签到开始时间
-     * @param end  签到结束时间
-     * @param code 签到码
+     * @param value
      * @return
      */
-    public ResultVO signPostByTeacher(String teacherName, String courseName, Date start, Date end, Integer code){
-        // 进行判断，签到请求是否合理
-        Integer teacher_id = getUserId();
-        // 根据id找到对应的教师名字，进行比较
-        if(teacherName !=  manager.get(teacher_id).getName()){
+    public ResultVO signPostByTeacher(TeacherSigninPostVO value){
+
+        // 根据id找到对应的教师名字
+        TeacherItemVO teacher = tCourseManager.get(value.getTeacherName());
+        if(teacher == null){
             return failedResult("请输入正确的教师名字");
         }
+        Integer teacher_id = teacher.getId();
+        Integer course_id = -1;
+
         // 根据教师id找到课程列表
         Integer flag = 0; // 表示成功找到相应教师下的课程
-        for (TeacherCourseItemVO itemVO:teacherManager.listTeacherCourse(teacher_id)){
-            if(itemVO.getName() == courseName){
+        for (TeacherCourseItemVO itemVO: tCourseManager.listTeacherCourse(teacher_id)){
+            if(Objects.equals(itemVO.getName(), value.getCourseName())){
                 flag = 1;
+                // 课程id
+                course_id = itemVO.getId();
                 break;
             }
         }
         if(flag != 1){return failedResult("请输入正确的课程名");}
+        // 生成签到码
+        // todo 遍历签到表检查有是否重复的签到码--异步
+
+        Integer code = GernerateSigninCode.getCode();
         // 插入签到记录表
-        return failedResult("还没写好");
+        SigninRecordEntity entity = new SigninRecordEntity();
+        if(course_id != -1)entity.setCourse_id(course_id);
+        entity.setEnd(value.getEndTime());
+        entity.setStart(value.getStartTime());
+        entity.setSignin_code(code);
+        signInManager.create(entity);
+        return result("发送签到成功，签到码是"+code);
     }
 }

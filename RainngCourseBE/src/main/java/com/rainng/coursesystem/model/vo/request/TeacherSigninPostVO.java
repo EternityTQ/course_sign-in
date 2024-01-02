@@ -22,7 +22,4 @@ public class TeacherSigninPostVO {
     @JsonFormat(pattern = "yyyy/MM/dd HH:mm")
     private Date endTime;
 
-
-    @NotNull(message = "签到码不能为空")
-    private Integer code;
 }

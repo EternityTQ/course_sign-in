@@ -1,6 +1,6 @@
 package com.rainng.coursesystem.service.admin;
 
-import com.rainng.coursesystem.manager.admin.TeacherManager;
+import com.rainng.coursesystem.manager.admin.ATeacherManager;
 import com.rainng.coursesystem.model.entity.TeacherEntity;
 import com.rainng.coursesystem.model.vo.response.ResultVO;
 import com.rainng.coursesystem.service.BaseService;
@@ -9,10 +9,10 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class TeacherService extends BaseService {
-    private final TeacherManager manager;
+    private final ATeacherManager manager;
     private final UserService userService;
 
-    public TeacherService(TeacherManager manager, UserService userService) {
+    public TeacherService(ATeacherManager manager, UserService userService) {
         this.manager = manager;
         this.userService = userService;
     }

@@ -1,6 +1,7 @@
 package com.rainng.coursesystem.manager.signin;
 
 import com.rainng.coursesystem.dao.SigninDAO;
+import com.rainng.coursesystem.model.entity.SigninRecordEntity;
 import com.rainng.coursesystem.model.vo.response.table.StudentSigninItemVO;
 import com.rainng.coursesystem.model.vo.response.table.TeacherSigninItemVO;
 import org.springframework.stereotype.Component;
@@ -20,6 +21,9 @@ public class SignInManager {
     }
     public List<TeacherSigninItemVO> listSignInRecordByCourseId(Integer id){
         return signinDAO.listSignInRecordByCourseId(id);
+    }
+    public Integer create(SigninRecordEntity entity){
+        return signinDAO.insert(entity);
     }
 
 }

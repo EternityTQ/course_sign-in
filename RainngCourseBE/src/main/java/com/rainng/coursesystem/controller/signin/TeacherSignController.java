@@ -29,15 +29,9 @@ public class TeacherSignController {
      * @param value 请求包，详情见TeacherSigninPostVO
      * @return
      */
-    @PostMapping("/post")
+    @PostMapping
     public ResultVO sign(@RequestBody TeacherSigninPostVO value){
-        return service.signPostByTeacher(
-                value.getTeacherName(),
-                value.getCourseName(),
-                value.getStartTime(),
-                value.getEndTime(),
-                value.getCode()
-        );
+        return service.signPostByTeacher(value);
     }
 
 }

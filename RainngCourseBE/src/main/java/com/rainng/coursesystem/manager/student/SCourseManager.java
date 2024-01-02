@@ -11,11 +11,11 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Component("student_CourseManager")
-public class CourseManager extends BaseManager {
+public class SCourseManager extends BaseManager {
     private final StudentCourseDAO studentCourseDAO;
     private final CourseDAO courseDAO;
 
-    public CourseManager(StudentCourseDAO studentCourseDAO, CourseDAO courseDAO) {
+    public SCourseManager(StudentCourseDAO studentCourseDAO, CourseDAO courseDAO) {
         this.studentCourseDAO = studentCourseDAO;
         this.courseDAO = courseDAO;
     }
