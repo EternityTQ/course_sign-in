@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.rainng.coursesystem.dao.mapper.SignInRecordMapper">
+    <select id="listSignInRecordByStuId" resultType="StudentSigninItemVO">
+        SELECT
+            rc_signin_status.id AS 'id',
+                rc_course.course_name AS 'courseName',
+                rc_teacher.teacher_name AS 'teacherName',
+                rc_signin_status.Latitude AS 'Latitude',
+                rc_signin_status.Longitude AS 'Longitude',
+                rc_signin_status.timestamp AS 'timeStamp',
+                status AS 'status'
+        FROM rc_signin_status
+                 LEFT JOIN rc_signin_record ON rc_signin_status.signin_code = rc_signin_record.signin_code
+                 LEFT JOIN rc_course  ON signin_course_id = rc_course.course_id
+                 LEFT JOIN rc_teacher  ON course_teacher_id = rc_teacher.teacher_id
+        WHERE signin_student_id = #{id}
+    </select>
+
+
+</mapper>

@@ -29,8 +29,8 @@ public class StudentSignController {
      * @param value
      * @return
      */
-    @PostMapping("/sign")
+    @PostMapping
     public ResultVO sign(@RequestBody StudentSignRequestVO value){
-        return service.signReqByStudent(value.getId(),value.getLocation(),value.getTimeStamp());
+        return service.signReqByStudent(value);
     }
 }

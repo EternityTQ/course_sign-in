@@ -5,6 +5,7 @@ import com.rainng.coursesystem.model.entity.SigninRecordEntity;
 import com.rainng.coursesystem.model.entity.SigninStatusEntity;
 import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
@@ -13,6 +14,6 @@ public class StudentSigninItemVO {
     private String courseName;
     private String teacherName;
     @JsonFormat(pattern = "yyyy/MM/dd HH:mm")
-    private Date timeStamp;
+    private LocalDateTime timeStamp;
     private SigninStatusEntity.SigninStatus status;
 }

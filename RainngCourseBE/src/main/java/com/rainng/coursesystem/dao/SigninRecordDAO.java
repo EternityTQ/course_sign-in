@@ -1,20 +1,20 @@
 package com.rainng.coursesystem.dao;
 
-import com.rainng.coursesystem.dao.mapper.SignInMapper;
+import com.rainng.coursesystem.dao.mapper.SignInRecordMapper;
 import com.rainng.coursesystem.model.entity.SigninRecordEntity;
-import com.rainng.coursesystem.model.vo.response.table.StudentSigninItemVO;
+import com.rainng.coursesystem.model.vo.response.table.SigninItemVO;
 import com.rainng.coursesystem.model.vo.response.table.TeacherSigninItemVO;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
 @Repository
-public class SigninDAO {
-    private final SignInMapper mapper;
+public class SigninRecordDAO {
+    private final SignInRecordMapper mapper;
 
 
-    public SigninDAO(SignInMapper signInMapper) {
-        this.mapper = signInMapper;
+    public SigninRecordDAO(SignInRecordMapper signInRecordMapper) {
+        this.mapper = signInRecordMapper;
     }
 
     public int insert(SigninRecordEntity entity){return mapper.insert(entity);};
@@ -23,9 +23,12 @@ public class SigninDAO {
 
     public int update(SigninRecordEntity entity){return mapper.updateById(entity);};
 
-    public List<StudentSigninItemVO> listSignInRecordByStuId(Integer id){
-        return mapper.listSignInRecordByStuId(id);
-    }
+
     public List<TeacherSigninItemVO> listSignInRecordByCourseId(Integer id){return mapper.listSignInRecordByCourseId(id);}
+
+    public TeacherSigninItemVO selectByCode(Integer code){return mapper.selectByCode(code);}
+
+    public List<SigninItemVO> list(){return  mapper.list();}
+
 
 }

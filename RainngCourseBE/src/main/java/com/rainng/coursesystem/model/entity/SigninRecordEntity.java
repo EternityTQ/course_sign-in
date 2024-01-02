@@ -7,8 +7,10 @@ import com.baomidou.mybatisplus.annotation.TableName;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import lombok.NonNull;
+import net.sf.jsqlparser.expression.DateTimeLiteralExpression;
 
 import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @TableName("rc_signin_record")
@@ -29,12 +31,12 @@ public class SigninRecordEntity {
     @NotNull(message = "必须选择签到开始时间")
     @TableField(START)
     @JsonFormat(pattern = "yyyy/MM/dd HH:mm")
-    private Date start;
+    private LocalDateTime start;
 
     @NotNull(message = "必须选择签到结束时间")
     @TableField(END)
     @JsonFormat(pattern = "yyyy/MM/dd HH:mm")
-    private Date end;
+    private LocalDateTime end;
 
     @NotNull
     @TableField(CODE)

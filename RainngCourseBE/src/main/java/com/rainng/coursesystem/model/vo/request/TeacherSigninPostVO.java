@@ -2,9 +2,10 @@ package com.rainng.coursesystem.model.vo.request;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
+import net.sf.jsqlparser.expression.DateTimeLiteralExpression;
 
 import javax.validation.constraints.NotNull;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 @Data
 public class TeacherSigninPostVO {
@@ -16,10 +17,11 @@ public class TeacherSigninPostVO {
 
     @NotNull(message = "签到开始时间不能为空")
     @JsonFormat(pattern = "yyyy/MM/dd HH:mm")
-    private Date startTime;
+    private LocalDateTime startTime;
 
     @NotNull(message = "签到结束时间不能为空")
     @JsonFormat(pattern = "yyyy/MM/dd HH:mm")
-    private Date endTime;
+    private LocalDateTime endTime;
+
 
 }

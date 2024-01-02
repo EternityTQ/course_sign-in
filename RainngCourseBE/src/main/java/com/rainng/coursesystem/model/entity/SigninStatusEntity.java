@@ -6,8 +6,10 @@ import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 import lombok.NonNull;
+import net.sf.jsqlparser.expression.DateTimeLiteralExpression;
 
 import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @TableName("rc_signin_status")
@@ -32,21 +34,13 @@ public class SigninStatusEntity {
     @TableId(value = ID, type = IdType.AUTO)
     private int id;
 
-    @NotNull(message = "经度不为空")
-    @TableField(LATITUDE)
-    private String Latitude;
-
-    @NotNull(message = "纬度不为空")
-    @TableField(LONGITUDE)
-    private String Longitude;
-
     @NotNull
     @TableField(STUDENT)
     private int student_id;
 
     @NotNull
     @TableField(CODE)
-    private int signin_id;
+    private int signin_code;
 
     @NotNull(message = "签到状态不能为空")
     @TableField(STATUS)
@@ -54,5 +48,6 @@ public class SigninStatusEntity {
 
     @NotNull
     @TableField(TIMESTAMP)
-    private Date timestamp;
+    private LocalDateTime timestamp;
+    public SigninStatusEntity (){}
 }

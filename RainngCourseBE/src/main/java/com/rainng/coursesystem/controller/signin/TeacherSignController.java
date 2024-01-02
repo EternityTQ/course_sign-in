@@ -34,4 +34,8 @@ public class TeacherSignController {
         return service.signPostByTeacher(value);
     }
 
+    @GetMapping("/list")
+    public ResultVO listAll(){
+        return service.list();
+    }
 }

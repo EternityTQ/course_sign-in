@@ -4,17 +4,19 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
 import javax.validation.constraints.NotNull;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Data
 public class StudentSignRequestVO {
-    @NotNull(message = "签到id不能为0")
+
+    @NotNull
     private Integer id;
 
     @JsonFormat(pattern = "yyyy/MM/dd HH:mm")
     @NotNull(message = "时间不能为0")
-    private Date timeStamp;
+    private LocalDateTime curTime;
 
-    @NotNull(message = "地点不能为0")
-    private String location;
+    @NotNull(message = "签到码不能为空")
+    private Integer code;
 }
