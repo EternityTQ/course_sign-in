@@ -1,38 +1,36 @@
 package com.rainng.coursesystem.service.signin;
 
-import com.rainng.coursesystem.manager.admin.ACourseManager;
 import com.rainng.coursesystem.manager.admin.ATeacherManager;
 import com.rainng.coursesystem.manager.signin.SignInManager;
 import com.rainng.coursesystem.manager.teacher.TCourseManager;
 import com.rainng.coursesystem.model.entity.SigninRecordEntity;
 import com.rainng.coursesystem.model.entity.SigninStatusEntity;
+import com.rainng.coursesystem.model.entity.TeacherEntity;
 import com.rainng.coursesystem.model.vo.request.StudentSignRequestVO;
 import com.rainng.coursesystem.model.vo.request.TeacherSigninPostVO;
 import com.rainng.coursesystem.model.vo.response.ResultVO;
-import com.rainng.coursesystem.model.vo.response.table.SigninItemVO;
 import com.rainng.coursesystem.model.vo.response.table.TeacherCourseItemVO;
-import com.rainng.coursesystem.model.vo.response.table.TeacherItemVO;
 import com.rainng.coursesystem.model.vo.response.table.TeacherSigninItemVO;
 import com.rainng.coursesystem.service.BaseService;
 import com.rainng.coursesystem.util.GernerateSigninCode;
+import com.rainng.coursesystem.util.TimeDifference;
 import org.springframework.stereotype.Service;
 
 import java.time.Duration;
-import java.time.LocalDateTime;
-import java.util.Date;
-import java.util.List;
 import java.util.Objects;
 
 @Service("sign_service")
 public class SignService extends BaseService {
     private final SignInManager signInManager;
     private final TCourseManager tCourseManager;
-
+    private final ATeacherManager aTeacherManager;
     public SignService(SignInManager signInManager,
-                       TCourseManager tCourseManager)
+                       TCourseManager tCourseManager,
+                       ATeacherManager aTeacherManager)
     {
         this.signInManager = signInManager;
         this.tCourseManager = tCourseManager;
+        this.aTeacherManager = aTeacherManager;
     }
     public ResultVO list(){return result(signInManager.list());}
 
@@ -94,12 +92,12 @@ public class SignService extends BaseService {
      */
     public ResultVO signPostByTeacher(TeacherSigninPostVO value){
 
-        // 根据id找到对应的教师名字
-        TeacherItemVO teacher = tCourseManager.get(value.getTeacherName());
+        // 根据id找到对应的teacher
+        TeacherEntity teacher = aTeacherManager.get(value.getTeacherId());
         if(teacher == null){
-            return failedResult("请输入正确的教师名字");
+            return failedResult("请输入正确的教师id");
         }
-        Integer teacher_id = teacher.getId();
+        Integer teacher_id = value.getTeacherId();
         Integer course_id = -1;
 
         // 根据教师id找到课程列表
@@ -113,6 +111,9 @@ public class SignService extends BaseService {
             }
         }
         if(flag != 1){return failedResult("请输入正确的课程名");}
+        if(!TimeDifference.isDirect(value.getStartTime())){
+            return failedResult("请输入合法的时间");
+        }
         if(value.getStartTime().compareTo(value.getEndTime()) >= 0){
             return failedResult("请输入正确的时间");
         }
@@ -121,6 +122,7 @@ public class SignService extends BaseService {
         }
         // 生成签到码
         Integer code = GernerateSigninCode.getCode();
+
         // todo 遍历签到表检查有是否重复的签到码--异步?
 //        List<SigninItemVO> signinItemVOList = signInManager.list();
 //

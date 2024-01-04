@@ -9,8 +9,8 @@ import java.time.LocalDateTime;
 
 @Data
 public class TeacherSigninPostVO {
-    @NotNull(message = "教师名字不能为空")
-    private String teacherName;
+    @NotNull(message = "教师id不能为空")
+    private Integer teacherId;
 
     @NotNull(message = "课程名字不能为空")
     private String courseName;
