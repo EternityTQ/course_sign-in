@@ -1,3 +1,4 @@
+
 <template>
   <div class="course-wrap">
     <div class="crumbs">

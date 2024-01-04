@@ -32,6 +32,7 @@ SideBarItem.items = [
     userType: UserType.student,
     permission: Permission.no
   },
+
    {
      icon: "el-icon-fa fa-eye",
      index: "/student/signin",

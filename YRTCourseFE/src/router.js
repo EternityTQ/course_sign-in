@@ -16,6 +16,9 @@ import TeacherGrade from "./views/teacher/TeacherGrade";
 import TeacherSignin from "./views/teacher/TeacherSignin";
 import TeacherSignListHome from "./views/teacher/TeacherSignListHome";
 import TeacherSignList from "./views/teacher/TeacherSignList";
+import TeacherCourse from "./views/teacher/TeacherCourse";
+import TeacherTimetable from "./views/teacher/TeacherTimetable";
+import TeacherGrade from "./views/teacher/TeacherGrade";
 import AdminDepartment from "./views/admin/AdminDepartment";
 import AdminMajor from "./views/admin/AdminMajor";
 import AdminClass from "./views/admin/AdminClass";
@@ -96,6 +99,7 @@ const routes = [
       },
       {
         path: "/teacher/grade",
+
         name: "teacher-signin-backup",
         component: TeacherGrade
       },
@@ -110,9 +114,9 @@ const routes = [
         component: TeacherSignListHome
       },
       {
-	path: "/teacher/signlist/:CourseID",
-	name: "teacher-signlist",
-	component: TeacherSignList
+	      path: "/teacher/signlist/:CourseID",
+	      name: "teacher-signlist",
+	      component: TeacherSignList
       },
       {
         path: "/admin",
