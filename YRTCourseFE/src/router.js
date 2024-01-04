@@ -8,6 +8,14 @@ import StudentInfo from "./views/student/StudentInfo";
 import StudentTimeTable from "./views/student/StudentTimeTable";
 import StudentExam from "./views/student/StudentExam";
 import StudentScore from "./views/student/StudentScore";
+import StudentSignin from "./views/student/StudentSignin";
+import StudentSignList from "./views/student/StudentSignList";
+import TeacherCourse from "./views/teacher/TeacherCourse";
+import TeacherTimetable from "./views/teacher/TeacherTimetable";
+import TeacherGrade from "./views/teacher/TeacherGrade";
+import TeacherSignin from "./views/teacher/TeacherSignin";
+import TeacherSignListHome from "./views/teacher/TeacherSignListHome";
+import TeacherSignList from "./views/teacher/TeacherSignList";
 import TeacherCourse from "./views/teacher/TeacherCourse";
 import TeacherTimetable from "./views/teacher/TeacherTimetable";
 import TeacherGrade from "./views/teacher/TeacherGrade";
@@ -65,6 +73,16 @@ const routes = [
         component: StudentInfo
       },
       {
+        path: "/student/signin",
+        name: "student-Signin",
+        component: StudentSignin
+      },
+      {
+        path: "/student/signlist",
+        name: "student-SignList",
+        component: StudentSignList
+      },
+      {
         path: "/teacher",
         name: "teacher-home",
         component: Home
@@ -81,8 +99,24 @@ const routes = [
       },
       {
         path: "/teacher/grade",
-        name: "teacher-grade",
+
+        name: "teacher-signin-backup",
         component: TeacherGrade
+      },
+      {
+        path: "/teacher/signin",
+        name: "teacher-signin",
+        component: TeacherSignin
+      },
+      {
+        path: "/teacher/signlist",
+        name: "teacher-signlist-home",
+        component: TeacherSignListHome
+      },
+      {
+	      path: "/teacher/signlist/:CourseID",
+	      name: "teacher-signlist",
+	      component: TeacherSignList
       },
       {
         path: "/admin",

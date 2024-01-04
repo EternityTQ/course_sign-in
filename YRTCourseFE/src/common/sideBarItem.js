@@ -32,13 +32,21 @@ SideBarItem.items = [
     userType: UserType.student,
     permission: Permission.no
   },
-  // {
-  //   icon: "el-icon-fa fa-eye",
-  //   index: "/student/exam",
-  //   title: "考试查询",
-  //   userType: UserType.student,
-  //   permission: Permission.no
-  // },
+
+   {
+     icon: "el-icon-fa fa-eye",
+     index: "/student/signin",
+     title: "快速签到",
+     userType: UserType.student,
+     permission: Permission.no
+   },
+   {
+     icon: "el-icon-fa fa-newspaper-o",
+     index: "/student/signlist",
+     title: "签到记录",
+     userType: UserType.student,
+     permission: Permission.no
+   },
 //  {
 //    icon: "el-icon-fa fa-newspaper-o",
 //    index: "/student/score",
@@ -76,8 +84,15 @@ SideBarItem.items = [
   },
   {
     icon: "el-icon-fa fa-edit",
-    index: "/teacher/grade",
+    index: "/teacher/signin",
     title: "签到管理",
+    userType: UserType.teacher,
+    permission: Permission.no
+  },
+  {
+    icon: "el-icon-fa fa-newspaper-o",
+    index: "/teacher/signlist",
+    title: "签到记录",
     userType: UserType.teacher,
     permission: Permission.no
   },
