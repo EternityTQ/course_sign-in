@@ -27,7 +27,7 @@
 	  
     </div>
 	<el-dialog :visible.sync="showDialog">
-      <div>教师姓名：{{ teacherName }}</div>
+      <div>教师账户名：{{ teacherName }}</div>
       <div>课程名：{{ currentCourse.name }}</div>
       <div>签到开始时间：{{ currentStartTime }}</div>
       <el-select v-model="duration" placeholder="请选择签到持续时间">
