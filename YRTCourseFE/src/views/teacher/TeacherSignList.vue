@@ -35,10 +35,10 @@ export default {
     this.fetchSignList();
   },
   methods: {
-    async fetchSignList() {
+    async fetchSignList(){
   try {
-    const teacherId = this.$store.state.status.userId; // 获取教师ID
-    const response = await axios.get(`http://124.221.54.208:8085/teacherSign/list/${teacherId}`);
+    const courseID = this.$route.params.CourseID;
+    const response = await axios.get(`http://124.221.54.208:8085/teacherSign/list/${courseID}`);
     if (response.data.code === 0) {
       this.signList = response.data.data;
     } else {

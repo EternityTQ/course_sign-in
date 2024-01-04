@@ -14,6 +14,7 @@ import TeacherCourse from "./views/teacher/TeacherCourse";
 import TeacherTimetable from "./views/teacher/TeacherTimetable";
 import TeacherGrade from "./views/teacher/TeacherGrade";
 import TeacherSignin from "./views/teacher/TeacherSignin";
+import TeacherSignListHome from "./views/teacher/TeacherSignListHome";
 import TeacherSignList from "./views/teacher/TeacherSignList";
 import AdminDepartment from "./views/admin/AdminDepartment";
 import AdminMajor from "./views/admin/AdminMajor";
@@ -104,7 +105,12 @@ const routes = [
         component: TeacherSignin
       },
       {
-	path: "/teacher/signlist",
+        path: "/teacher/signlist",
+        name: "teacher-signlist-home",
+        component: TeacherSignListHome
+      },
+      {
+	path: "/teacher/signlist/:CourseID",
 	name: "teacher-signlist",
 	component: TeacherSignList
       },
