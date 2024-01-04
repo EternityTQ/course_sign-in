@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h2>欢迎使用课程管理系统</h2>
+    <h2>欢迎使用Y·R·T课程签到管理系统</h2>
     <img src="/9.png" alt="khn daisuki" height="20%" class="pic_responsive"/>
 
 
