@@ -6,6 +6,7 @@ import com.rainng.coursesystem.model.entity.SigninRecordEntity;
 import com.rainng.coursesystem.model.entity.SigninStatusEntity;
 import com.rainng.coursesystem.model.vo.response.table.SigninItemVO;
 import com.rainng.coursesystem.model.vo.response.table.StudentSigninItemVO;
+import com.rainng.coursesystem.model.vo.response.table.StudentStatusItemVO;
 import com.rainng.coursesystem.model.vo.response.table.TeacherSigninItemVO;
 import org.springframework.stereotype.Component;
 
@@ -37,5 +38,8 @@ public class SignInManager {
 
     public TeacherSigninItemVO selectByCode(Integer code){return signinRecordDAO.selectByCode(code);}
 
+    public List<StudentStatusItemVO> selectByStuId(Integer stuId){
+        return signinStatusDAO.selectByStuId(stuId);
+    }
 
 }

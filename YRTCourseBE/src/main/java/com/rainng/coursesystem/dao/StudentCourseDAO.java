@@ -92,4 +92,7 @@ public class StudentCourseDAO extends BaseDAO {
         Page<TeacherGradeItemVO> page = new Page<>(index, PAGE_SIZE);
         return mapper.getTeacherGradePage(page, teacherId, courseName, studentName).getRecords();
     }
+    public List<Integer> listCourseStudent(Integer courseId){
+        return mapper.listCourseStudent(courseId);
+    }
 }

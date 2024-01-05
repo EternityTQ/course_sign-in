@@ -16,6 +16,16 @@
                  LEFT JOIN rc_teacher  ON course_teacher_id = rc_teacher.teacher_id
         WHERE signin_student_id = #{id}
     </select>
-
+    <select id="selectByStuId" resultType="StudentStatusItemVO">
+        SELECT
+            student_name AS studentName,
+            student_number AS studentNum,
+            signin_student_id AS studentId,
+            status AS Status,
+            timestamp AS signinTime
+        FROM rc_signin_status
+            LEFT JOIN rc_student on student_id = signin_student_id
+        where signin_student_id = #{id};
+    </select>
 
 </mapper>

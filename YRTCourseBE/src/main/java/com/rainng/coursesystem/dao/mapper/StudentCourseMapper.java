@@ -27,4 +27,6 @@ public interface StudentCourseMapper extends BaseMapper<StudentCourseEntity> {
     Integer countStudentCourseSelectedByTimePart(@Param("studentId")Integer studentId,@Param("timePart") String timePart);
 
     List<TimetableItemVO> listStudentTimetable(Integer studentId);
+    
+    List<Integer> listCourseStudent(Integer courseId);
 }

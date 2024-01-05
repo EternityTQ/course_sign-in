@@ -127,4 +127,10 @@
             </if>
         </where>
     </select>
+    <select id="listCourseStudent" resultType="Integer">
+        SELECT
+            sc_student_id
+        FROM rc_student_course
+        where sc_course_id = #{courseId};
+    </select>
 </mapper>

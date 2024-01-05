@@ -1,5 +1,6 @@
 package com.rainng.coursesystem.controller.signin;
 
+import com.rainng.coursesystem.model.vo.request.ClassSigninDetailReqVO;
 import com.rainng.coursesystem.model.vo.request.TeacherSigninPostVO;
 import com.rainng.coursesystem.model.vo.response.ResultVO;
 import com.rainng.coursesystem.service.signin.SignService;
@@ -34,8 +35,22 @@ public class TeacherSignController {
         return service.signPostByTeacher(value);
     }
 
+    /**
+     * 列出所有的记录表
+     * @return
+     */
     @GetMapping("/list")
     public ResultVO listAll(){
         return service.list();
+    }
+
+    /**
+     * 根据签到记录列出签到详情
+     * @param id 课程id
+     * @return
+     */
+    @PostMapping("/detail/{id}")
+    public ResultVO listDetail(@PathVariable Integer id){
+        return service.listDetail(id);
     }
 }

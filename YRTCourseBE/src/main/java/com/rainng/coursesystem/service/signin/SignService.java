@@ -2,13 +2,16 @@ package com.rainng.coursesystem.service.signin;
 
 import com.rainng.coursesystem.manager.admin.ATeacherManager;
 import com.rainng.coursesystem.manager.signin.SignInManager;
+import com.rainng.coursesystem.manager.student.SCourseManager;
 import com.rainng.coursesystem.manager.teacher.TCourseManager;
 import com.rainng.coursesystem.model.entity.SigninRecordEntity;
 import com.rainng.coursesystem.model.entity.SigninStatusEntity;
 import com.rainng.coursesystem.model.entity.TeacherEntity;
+import com.rainng.coursesystem.model.vo.request.ClassSigninDetailReqVO;
 import com.rainng.coursesystem.model.vo.request.StudentSignRequestVO;
 import com.rainng.coursesystem.model.vo.request.TeacherSigninPostVO;
 import com.rainng.coursesystem.model.vo.response.ResultVO;
+import com.rainng.coursesystem.model.vo.response.table.StudentStatusItemVO;
 import com.rainng.coursesystem.model.vo.response.table.TeacherCourseItemVO;
 import com.rainng.coursesystem.model.vo.response.table.TeacherSigninItemVO;
 import com.rainng.coursesystem.service.BaseService;
@@ -17,6 +20,8 @@ import com.rainng.coursesystem.util.TimeDifference;
 import org.springframework.stereotype.Service;
 
 import java.time.Duration;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 @Service("sign_service")
@@ -24,13 +29,16 @@ public class SignService extends BaseService {
     private final SignInManager signInManager;
     private final TCourseManager tCourseManager;
     private final ATeacherManager aTeacherManager;
+    private final SCourseManager  sCourseManager;
     public SignService(SignInManager signInManager,
                        TCourseManager tCourseManager,
-                       ATeacherManager aTeacherManager)
+                       ATeacherManager aTeacherManager,
+                       SCourseManager sCourseManager)
     {
         this.signInManager = signInManager;
         this.tCourseManager = tCourseManager;
         this.aTeacherManager = aTeacherManager;
+        this.sCourseManager = sCourseManager;
     }
     public ResultVO list(){return result(signInManager.list());}
 
@@ -141,5 +149,25 @@ public class SignService extends BaseService {
         entity.setSignin_code(code);
         signInManager.create(entity);
         return result("发送签到成功，签到码是"+code);
+    }
+
+    /**
+     * 查看签到记录详情
+     * @param courseId 课程id
+     * @return
+     */
+    public ResultVO listDetail(Integer courseId) {
+        // 通过课程id在班级找到相应的学生列表
+        List<Integer> StuIdList = sCourseManager.listCourseStudent(courseId);
+//        return result(StuIdList);
+        List<StudentStatusItemVO> res = new ArrayList<>();
+        for(Integer stuId:StuIdList){
+            List<StudentStatusItemVO> tmp = signInManager.selectByStuId(stuId);
+            for(StudentStatusItemVO it:tmp){
+                res.add(it);
+            }
+        }
+        return result(res);
+
     }
 }

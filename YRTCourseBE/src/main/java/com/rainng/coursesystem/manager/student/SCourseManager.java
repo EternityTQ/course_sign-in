@@ -33,4 +33,7 @@ public class SCourseManager extends BaseManager {
     public List<StudentCourseSelectedItemVO> listStudentCourseSelected(Integer studentId) {
         return studentCourseDAO.listStudentCourseSelected(studentId);
     }
+    public List<Integer> listCourseStudent(Integer courseId){
+        return studentCourseDAO.listCourseStudent(courseId);
+    }
 }
