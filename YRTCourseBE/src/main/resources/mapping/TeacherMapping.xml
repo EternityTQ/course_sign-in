@@ -54,4 +54,14 @@
                  JOIN rc_course on teacher_id = course_teacher_id
         WHERE teacher_id = #{teacherId}
     </select>
+
+    <select id="selectByName" resultType="TeacherItemVO">
+        SELECT teacher_id             AS 'id',
+                teacher_number         AS 'number',
+                teacher_name           AS 'name',
+                department_name  AS 'departmentName'
+        FROM rc_teacher
+                 JOIN rc_department on teacher_department_id = department_id
+        WHERE teacher_name = #{name}
+    </select>
 </mapper>

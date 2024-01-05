@@ -14,12 +14,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class TeacherManager extends BaseManager {
+public class ATeacherManager extends BaseManager {
     private final DepartmentDAO departmentDAO;
     private final TeacherDAO teacherDAO;
     private final CourseDAO courseDAO;
 
-    public TeacherManager(DepartmentDAO departmentDAO, TeacherDAO teacherDAO, CourseDAO courseDAO) {
+    public ATeacherManager(DepartmentDAO departmentDAO, TeacherDAO teacherDAO, CourseDAO courseDAO) {
         this.departmentDAO = departmentDAO;
         this.teacherDAO = teacherDAO;
         this.courseDAO = courseDAO;
@@ -33,6 +33,8 @@ public class TeacherManager extends BaseManager {
     public List<TeacherItemVO> getPage(Integer index, String departmentName, String name) {
         return teacherDAO.getPage(index, departmentName, name);
     }
+
+    public TeacherItemVO get(String name){return teacherDAO.get(name);}
 
     public TeacherEntity get(Integer id) {
         return teacherDAO.get(id);

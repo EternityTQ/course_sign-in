@@ -33,6 +33,8 @@ public class TeacherDAO extends BaseDAO {
         return mapper.selectById(id);
     }
 
+    public TeacherItemVO get(String name){return mapper.selectByName(name);}
+
     public int update(TeacherEntity entity) {
         return mapper.updateById(entity);
     }
